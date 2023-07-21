@@ -11,7 +11,7 @@
     <div id="Contenedor" class="pt-20 pb-10 fixed inset-0 flex flex-col justify-start items-center w-full overflow-y-scroll">
         <div id="SeccionPaquetes" class="flex flex-col justify-center items-center w-11/12">
             <div class="w-full flex justify-center my-12">
-                <label class="text-5xl font-bold italic">NUESTROS PAQUETES</label>
+                <label class="text-5xl text-gray-500 font-bold italic">NUESTROS PAQUETES</label>
             </div>
             <div class="flex justify-evenly  w-full">
                 <div class="w-[25rem] h-[40rem] bg-white hover:bg-gradient-to-r from-cyan-500 to-blue-500 text-gray-500 hover:text-white rounded-xl relative animation">
@@ -78,10 +78,10 @@
         </div>
         <div id="SeccionPersonalizado" class="flex flex-col justify-center items-center w-11/12">
             <div class="w-full flex justify-center my-12">
-                <label class="text-5xl font-bold italic">PAQUETE PERSONALIZADO</label>
+                <label class="text-5xl text-gray-500 font-bold italic">PAQUETE PERSONALIZADO</label>
             </div>
-            <div class="flex">
-                <div class="flex justify-evenly w-full">
+            <div class="flex w-full">
+                <div class="flex justify-evenly w-1/3">
                     <div class="w-[25rem] h-[40rem] bg-white hover:bg-gradient-to-r from-cyan-500 to-blue-500 text-gray-500 hover:text-white text-gray-500 hover:text-white rounded-xl relative">
                         <div class="w-full h-1/3 flex flex-col justify-evenly items-center rounded-t-xl bg-gradient-to-r from-cyan-500 to-blue-500 absolute top-0">
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="white" class="bi bi-input-cursor-text" viewBox="0 0 16 16">
@@ -91,34 +91,50 @@
                             <label class="text-4xl text-white font-semibold">ESPECIAL</label>
                         </div>
                         <div class="w-full h-2/3 flex flex-col justify-evenly items-center rounded-b-xl bg-transparent absolute bottom-0">
-                            <label class="text-4xl font-semibold">$4.99 US</label>
-                            <label class="text-4xl font-semibold">usuario/mes</label>
+                            <label class="text-4xl text-green-400 font-semibold italic">OFERTA</label>
+                            <label id="Periodo" class="text-4xl font-semibold">a medida</label>
                             <button class="text-4xl text-white hover:text-green-500 hover:border-2 hover:border-green-500 font-semibold bg-green-500 hover:bg-white px-8 py-3 rounded-xl">ADQUIRIR</button>
-                            <label class="text-4xl font-semibold">De 1 a 5 usuarios</label>
+                            <label class="text-4xl font-semibold">De 1 a X usuarios</label>
                             <label class="text-xl font-semibold">
-                                *Consultorio en linea<br>
-                                *Soporte técnico remoto<br>
-                                *Servicio de actualización<br>
-                                *Diagnóstico<br>
+                                *Diseñado a tus necesidades
                             </label>
                         </div>
                     </div>
                 </div>  
-                <div class="w-full h-[40rem] rounded-xl">
+                <div class="w-full h-[40rem] rounded-xl bg-white italic">
                     <div class="w-full h-1/3 flex flex-col justify-evenly items-center rounded-t-xl bg-gradient-to-r from-cyan-500 to-blue-500">
-                        <label class="text-4xl text-white text-center font-semibold">PERZONALIZA TU PAQUETE</label>
+                        <label class="text-5xl text-white text-center font-semibold">PERZONALIZA TU PAQUETE</label>
                     </div>
-                    <div class="w-full h-2/3 flex flex-col justify-evenly items-center rounded-b-xl bg-transparent">
-                        <label class="text-4xl font-semibold">$4.99 US</label>
-                        <label class="text-4xl font-semibold">usuario/mes</label>
-                        <button class="text-4xl text-white hover:text-green-500 hover:border-2 hover:border-green-500 font-semibold bg-green-500 hover:bg-white px-8 py-3 rounded-xl">ADQUIRIR</button>
-                        <label class="text-4xl font-semibold">De 1 a 5 usuarios</label>
-                        <label class="text-xl font-semibold">
-                            *Consultorio en linea<br>
-                            *Soporte técnico remoto<br>
-                            *Servicio de actualización<br>
-                            *Diagnóstico<br>
-                        </label>
+                    <div class="w-full h-2/3 grid grid-cols-2 items-center text-gray-500 rounded-b-xl bg-transparent">
+                        <div class="flex flex-col gap-6">
+                            <label class="text-4xl font-semibold flex justify-center">Tipo de Periodo</label>
+                            <div class="flex justify-evenly w-full">
+                                <button onclick="SelectPaymentMensual()" id="btnMensual" class="text-3xl px-4 py-2 border-2 border-black rounded-xl">Mensual</button>
+                                <button  onclick="SelectPaymentAnual()"id="btnAnual" class="text-3xl px-4 py-2 border-2 border-black rounded-xl">Anual</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-6">
+                            <label class="text-4xl font-semibold flex justify-center">Tipo de Pago</label>
+                            <div class="flex justify-evenly w-full">
+                                <select id="TipoPago" onchange="SelectPaymentType()" class="text-3xl px-4 py-2 border-2 border-black rounded-xl">
+                                    <option value="0">Selecciona una opcion</option>
+                                    <option value="1">Por Unidad</option>
+                                    <option value="2">Por Paquete</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-6">
+                            <label class="text-4xl font-semibold flex justify-center">Tipo de Moneda</label>
+                            <div class="flex justify-evenly w-full">
+                                <label class="text-3xl px-4 py-2 bg-green-500 text-white rounded-xl">US Dollar</label>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-6">
+                            <label id="TipoPagoString" class="text-4xl font-semibold flex justify-center">Unidades</label>
+                            <div class="flex justify-evenly w-full">
+                                <input id="unidades" type="number" onchange="SelectPaymenUnits()" class="text-3xl px-4 py-2 text-center border-2 border-black rounded-xl"  onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="0" max="40"></input>
+                            </div>
+                        </div>                        
                     </div>
                 </div>     
             </div>
@@ -130,6 +146,9 @@
     <nav id="NavBar" class="fixed inset-x-0 top-0 border-b border-gray-600 h-20 w-screen bg-transparent flex items-center" style="backdrop-filter: blur(5px);">
         <span class="text-3xl font-[Hogira] ml-5"><label class="text-black">Pro</label><label class="text-cyan-600">sys</label><label  class="text-blue-900">Byte</label></span>
     </nav>
+
+
+    <script src="java.js"></script> 
 </body>
 </html>
 
